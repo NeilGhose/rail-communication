@@ -8,12 +8,12 @@ if __name__ == '__main__':
     f = open("file.txt", 'r')
 
     #a = f.read().encode('utf-8')
-    a = f.readline().encode('utf-8')
+    a = f.read(1024).encode('utf-8')
     print("a encoded")
 
     while a:
         n = ser.write(a)
-        a = f.readline().encode('utf-8')
-        print("a written to "+str(n)+" bytes")
+        a = f.read(1024).encode('utf-8')
+        print("a written to",n," bytes")
         line = ser.readline().decode('utf-8').rstrip()
         print(line)
