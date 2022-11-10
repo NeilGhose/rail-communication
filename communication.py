@@ -1,6 +1,5 @@
 import serial
 import time
-import sys
 
 if __name__ == '__main__':
     ser = serial.Serial('/dev/ttyACM0', 115200, timeout=1)
@@ -10,10 +9,14 @@ if __name__ == '__main__':
     #a = f.read().encode('utf-8')
     a = f.read(1024).encode('utf-8')
     print("a encoded")
+    x = ""
+    start = time.time()
 
     while a:
         n = ser.write(a)
         a = f.read(1024).encode('utf-8')
         print("a written to",n," bytes")
-        line = ser.readline().decode('utf-8').rstrip()
-        print(line)
+        x += ser.read(2048).decode('utf-8').rstrip()
+
+    print(x)
+    print("Time: ", time.time() - start, "seconds")
