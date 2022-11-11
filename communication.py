@@ -14,8 +14,10 @@ if __name__ == '__main__':
     while a:
         n = ser.write(a)
         a = f.read(1024).encode('utf-8')
-        print("a written to",n," bytes")
-        x += ser.read(2048).decode('utf-8').rstrip()
+        print("Raspberry Pi: sent",n," bytes")
+        #x += ser.read(2048).decode('utf-8').rstrip()
+        x = ser.read(2048).decode('utf-8').rstrip()
+        print(x)
         b += n
 
     #print(x)
