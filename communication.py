@@ -21,4 +21,4 @@ if __name__ == '__main__':
         b += n
 
     #print(x)
-    print("Sent",b,"bytes in", time.time() - start, "seconds")
+    print("\nSent",b,"bytes in", time.time() - start, "seconds")
