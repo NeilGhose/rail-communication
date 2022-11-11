@@ -8,8 +8,8 @@ void loop() {
   if (Serial.available() > 0) {
     int n = Serial.readBytes(data, 1024);
     //Serial.print(data);
-    Serial.print("Arduino: recieved");
+    Serial.print("Arduino: recieved ");
     Serial.print(n);
-    Serial.print("bytes\n");
+    Serial.print(" bytes\n");
   }
 }
